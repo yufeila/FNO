@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "欢迎.md",
+                "file": "new/开题报告建议.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "欢迎"
+              "title": "开题报告建议"
             }
           },
           {
@@ -95,12 +95,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "code/Tucker Tensorized FNO.md",
+                "file": "code/FNO_dary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tucker Tensorized FNO"
+              "title": "FNO_dary"
             }
           },
           {
@@ -115,8 +115,7 @@
               "title": "Fourier-Neural-Operator-FNO-network-architecture"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -237,13 +236,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "code/Tucker Tensorized FNO.md",
+                "file": "code/FNO_dary.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Tucker Tensorized FNO 的大纲"
+              "title": "FNO_dary 的大纲"
             }
           },
           {
@@ -298,91 +297,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "floating": {
-    "id": "b9cbb57585dee686",
-    "type": "floating",
-    "children": [
-      {
-        "id": "1707e869f99184e4",
-        "type": "window",
-        "children": [
-          {
-            "id": "e394f0e79d629388",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "01cf78895e450e66",
-                "type": "leaf",
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://github.com/mahyarmirrashed/yaos/issues/new/choose",
-                    "title": "Page not found · GitHub",
-                    "mode": "webview"
-                  },
-                  "icon": "globe-2",
-                  "title": "Page not found · GitHub"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 208,
-        "y": 26,
-        "width": 1024,
-        "height": 800,
-        "maximize": false,
-        "zoom": 0
-      },
-      {
-        "id": "1f6e951b373992a5",
-        "type": "window",
-        "children": [
-          {
-            "id": "4be66f7e43d110c4",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "34bf63650a1358d7",
-                "type": "leaf",
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://github.com/mahyarmirrashed/yaos/issues/new/choose",
-                    "title": "Page not found · GitHub",
-                    "mode": "webview"
-                  },
-                  "icon": "globe-2",
-                  "title": "Page not found · GitHub"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 208,
-        "y": 26,
-        "width": 1024,
-        "height": 800,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "597c5ff5bc41887c",
+  "active": "1ab8e2cc971817e9",
   "lastOpenFiles": [
-    "code/Tucker Tensorized FNO.md",
     "code/FNO_dary.md",
-    "attachments/Fourier-Neural-Operator-FNO-network-architecture.png",
+    "new/开题报告建议.md",
+    "欢迎.md",
+    "new/PHYSICS-ENCODED FOURIER NEURAL OPERATOR.md",
+    "new/FNO.md",
     "new/科研术语.md",
+    "code/Tucker Tensorized FNO.md",
+    "code/神经网络.md",
+    "attachments/Fourier-Neural-Operator-FNO-network-architecture.png",
     "attachments/Pasted Image 20250328151611_636.png",
     "attachments/Fourier-Neural-Operator-FNO-network-architecture.png.crdownload",
-    "new/PHYSICS-ENCODED FOURIER NEURAL OPERATOR.md",
-    "code/神经网络.md",
-    "new/FNO.md",
     "未命名.md",
-    "欢迎.md",
     "code",
     "notes/sunHankelFNOFastUnderwater.md",
     "notes/Drawing 2025-03-28 12.05.20.excalidraw.md",

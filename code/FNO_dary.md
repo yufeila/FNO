@@ -24,6 +24,7 @@ load_darcy_flow_small(
 1. **Lifting Layer（升维层）**
     
     - 将输入函数 u(x,y)u(x, y)（如初始场）通过一个线性映射 PP，升维至隐藏通道空间，增强网络容量。
+    - 之后通过重复堆叠的傅里叶层
         
 2. **傅里叶层（Fourier Layer）重复堆叠**  
     每一层操作如下：
@@ -164,3 +165,5 @@ print(f'\n * Train: {train_loss}')
 print(f'\n * Test: {eval_losses}')
 sys.stdout.flush()  # 确保所有信息立即显示
 ```
+
+

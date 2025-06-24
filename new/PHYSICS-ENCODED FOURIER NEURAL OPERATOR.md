@@ -93,12 +93,18 @@ $$
 
 ## Transfer Learning(迁移学习)
 
+  
+为了将物理知识和传统微分方程求解器的约束条件融入傅里叶神经算子中，我们可以对输入做以下3方面的设计。
+
+考虑到训练一个模型需要大量数据，尤其对于海洋声学有关的场景是格外棘手的，因此，研究采取了一种微调的方式，模型最初使用**具有相似水深地形信息、单一震源频率和固定震源位置**的数据进行训练。
+
 - In practice, training such a model needs a large amount of training data, which is often intractable in ocean acoustic-related scenarios.
 
 - The model is initially trained using data with **similar bathymetry information, a single source frequency, and a fixed source position.**
 
 - Subsequently, it is **finetuned(微调)** with a limited dataset encompassing different environmental and source conditions.
 
+微调的目标是通过最小化损失函数L来调整模型参数$\theta$。
 
 
 ## NUMERICAL RESULTS 部分分析
