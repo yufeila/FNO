@@ -1,0 +1,34 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "/notes",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "GB/T_2015",
+      "format": "formatted-bibliography",
+      "cslStyle": "china-national-standard-gb-t-7714-2015-author-date"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Import",
+      "outputPathTemplate": "/notes/@{{citekey}}.md",
+      "imageOutputPathTemplate": "/notes/assets/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "cslStyle": "china-national-standard-gb-t-7714-2015-author-date"
+    },
+    {
+      "name": "Import #1",
+      "outputPathTemplate": "{{citekey}}.md",
+      "imageOutputPathTemplate": "/notes/asserts/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "template/Zotero-Note-template.md",
+      "cslStyle": "china-national-standard-gb-t-7714-2015-author-date"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": true,
+  "whichNotesToOpenAfterImport": "first-imported-note"
+}

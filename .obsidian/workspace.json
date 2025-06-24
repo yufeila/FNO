@@ -1,0 +1,412 @@
+{
+  "main": {
+    "id": "cf38e1f3c1b74a82",
+    "type": "split",
+    "children": [
+      {
+        "id": "c696c25905bcfb98",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1ab8e2cc971817e9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "欢迎.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "欢迎"
+            }
+          },
+          {
+            "id": "61bb3060f63492ef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "template/Zotero-Note-template.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Zotero-Note-template"
+            }
+          },
+          {
+            "id": "d651d779cb3495c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/sunHankelFNOFastUnderwater.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sunHankelFNOFastUnderwater"
+            }
+          },
+          {
+            "id": "3fe6e1facad78f0f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/sunHankelFNOFastUnderwater.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sunHankelFNOFastUnderwater"
+            }
+          },
+          {
+            "id": "4724dc3c38d5974c",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "notes/Drawing 2025-03-28 12.05.20.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2025-03-28 12.05.20.excalidraw"
+            }
+          },
+          {
+            "id": "6ed865469b2bade4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "综述/初探信号处理.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "初探信号处理"
+            }
+          },
+          {
+            "id": "597c5ff5bc41887c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "code/Tucker Tensorized FNO.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tucker Tensorized FNO"
+            }
+          },
+          {
+            "id": "e8f2a532285c1c45",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "attachments/Fourier-Neural-Operator-FNO-network-architecture.png"
+              },
+              "icon": "lucide-image",
+              "title": "Fourier-Neural-Operator-FNO-network-architecture"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "513950a8a756e086",
+    "type": "split",
+    "children": [
+      {
+        "id": "2dba6e36dce48910",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54dc79b0dd2b9bbe",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "1ca9cd45e706a829",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "3644ed4add92243f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "018dc2b526061abf",
+    "type": "split",
+    "children": [
+      {
+        "id": "2641ff699b133494",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fbd835e9e2e4824f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "code/FNO_dary.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "FNO_dary 的反向链接列表"
+            }
+          },
+          {
+            "id": "4907e669137fdfb9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "欢迎.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "欢迎 的出链列表"
+            }
+          },
+          {
+            "id": "612b9492b4daa71e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "5a0022402f36e73d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "code/Tucker Tensorized FNO.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Tucker Tensorized FNO 的大纲"
+            }
+          },
+          {
+            "id": "071f5c13f4548ce0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "06e6e040a521d5d3",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "templater-obsidian:Templater": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "publish:发布更改": false,
+      "workspaces:管理工作区布局": false,
+      "audio-recorder:开始/结束录音": false,
+      "random-note:开始漫游笔记": false,
+      "zk-prefixer:创建时间戳笔记": false,
+      "yet-another-obsidian-synchronizer:YAOS": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "floating": {
+    "id": "b9cbb57585dee686",
+    "type": "floating",
+    "children": [
+      {
+        "id": "1707e869f99184e4",
+        "type": "window",
+        "children": [
+          {
+            "id": "e394f0e79d629388",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "01cf78895e450e66",
+                "type": "leaf",
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://github.com/mahyarmirrashed/yaos/issues/new/choose",
+                    "title": "Page not found · GitHub",
+                    "mode": "webview"
+                  },
+                  "icon": "globe-2",
+                  "title": "Page not found · GitHub"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 208,
+        "y": 26,
+        "width": 1024,
+        "height": 800,
+        "maximize": false,
+        "zoom": 0
+      },
+      {
+        "id": "1f6e951b373992a5",
+        "type": "window",
+        "children": [
+          {
+            "id": "4be66f7e43d110c4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "34bf63650a1358d7",
+                "type": "leaf",
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://github.com/mahyarmirrashed/yaos/issues/new/choose",
+                    "title": "Page not found · GitHub",
+                    "mode": "webview"
+                  },
+                  "icon": "globe-2",
+                  "title": "Page not found · GitHub"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 208,
+        "y": 26,
+        "width": 1024,
+        "height": 800,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "597c5ff5bc41887c",
+  "lastOpenFiles": [
+    "code/Tucker Tensorized FNO.md",
+    "code/FNO_dary.md",
+    "attachments/Fourier-Neural-Operator-FNO-network-architecture.png",
+    "new/科研术语.md",
+    "attachments/Pasted Image 20250328151611_636.png",
+    "attachments/Fourier-Neural-Operator-FNO-network-architecture.png.crdownload",
+    "new/PHYSICS-ENCODED FOURIER NEURAL OPERATOR.md",
+    "code/神经网络.md",
+    "new/FNO.md",
+    "未命名.md",
+    "欢迎.md",
+    "code",
+    "notes/sunHankelFNOFastUnderwater.md",
+    "notes/Drawing 2025-03-28 12.05.20.excalidraw.md",
+    "邮件.md",
+    "综述/信号处理领域了解.md",
+    "sunHankelFNOFastUnderwater.md",
+    "综述/初探信号处理.md",
+    "综述",
+    "attachments/Pasted Image 20250328154938_670.png",
+    "attachments/Pasted Image 20250328154837_745.png",
+    "attachments/Pasted Image 20250328154620_264.png",
+    "attachments/Pasted Image 20250328154548_624.png",
+    "attachments/Pasted Image 20250328154217_189.png",
+    "attachments/Pasted Image 20250328153952_607.png",
+    "attachments/Pasted Image 20250328153907_746.png",
+    "attachments/Pasted Image 20250328153856_753.png",
+    "template/Zotero-Note-template.md",
+    "snippets/未命名.md",
+    "snippets",
+    "template",
+    "notes/asserts",
+    "attachments",
+    "new",
+    "reviews",
+    "notes"
+  ]
+}
