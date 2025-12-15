@@ -1,0 +1,26 @@
+/workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/./experiments/Adblprime_time_pe/train.py:131: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  norm_dict = torch.load(str(NORM_PATH), map_location='cpu')
+/workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/src/normalizer.py:9: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /opt/conda/conda-bld/pytorch_1729647350383/work/aten/src/ATen/native/ReduceOps.cpp:1823.)
+  self.std = torch.std(x, 0UsUsing device: cuda
+Loading data...
+Train X shape: torch.Size([2336, 199, 800])
+Train Y shape: torch.Size([2336, 199, 800])
+Test X shape: torch.Size([584, 199, 800])
+Test Y shape: torch.Size([584, 199, 800])
+Loading normalizers from /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/normalizers/ssp_tl_norm_train2336_ndrz10.pt
+Model parameters: 134243329
+Starting training...
+Epoch: 0, Time: 139.21, Opt Loss: 0.99606, Train L2: 0.05981, Test L2: 0.06675
+Epoch: 1, Time: 136.13, Opt Loss: 0.91817, Train L2: 0.05521, Test L2: 0.06716
+Epoch: 2, Time: 133.44, Opt Loss: 0.83005, Train L2: 0.04984, Test L2: 0.06721
+Epoch: 3, Time: 134.13, Opt Loss: 0.77016, Train L2: 0.04610, Test L2: 0.06941
+Epoch: 4, Time: 133.82, Opt Loss: 0.72666, Train L2: 0.04339, Test L2: 0.06883
+Epoch: 5, Time: 133.92, Opt Loss: 0.69286, Train L2: 0.04138, Test L2: 0.06860
+Epoch: 6, Time: 65.91, Opt Loss: 0.65565, Train L2: 0.03926, Test L2: 0.06989
+Epoch: 7, Time: 64.15, Opt Loss: 0.62649, Train L2: 0.03770, Test L2: 0.07042
+Epoch: 8, Time: 64.17, Opt Loss: 0.59711, Train L2: 0.03608, Test L2: 0.06983
+Epoch: 9, Time: 64.35, Opt Loss: 0.57425, Train L2: 0.03481, Test L2: 0.06969
+Training completed in 1069.24s
+Model saved to /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/experiments/Adblprime_time_pe/runs/modes1_32_modes2_128_epoch_10/model_ssp_tl_time_pe.pth
+Generating visualizations...
+Saved visualization to /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/experiments/Adblprime_time_pe/runs/modes1_32_modes2_128_epoch_10/prediction_results.png

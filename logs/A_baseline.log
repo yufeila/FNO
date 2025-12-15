@@ -1,0 +1,34 @@
+/workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/./experiments/A_no_time/train.py:69: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  norm_dict = torch.load(str(NORM_PATH), map_location='cpu')
+/workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/src/normalizer.py:9: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /opt/conda/conda-bld/pytorch_1729647350383/work/aten/src/ATen/native/ReduceOps.cpp:1823.)
+  self.std = torch.std(x, 0)
+Using device: cuda
+Loading data...
+Train X: torch.Size([2336, 199, 800]), Train Y: torch.Size([2336, 199, 800])
+Test  X: torch.Size([584, 199, 800]),  Test  Y: torch.Size([584, 199, 800])
+Loading normalizers from /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/normalizers/ssp_tl_norm_train2336_ndrz10.pt
+Model parameters: 134243073
+Starting training...
+Epoch: 0, Time: 141.17, OptLoss: 0.98936, TrainL2: 0.05943, TestL2: 0.06410
+Epoch: 1, Time: 71.47, OptLoss: 0.85865, TrainL2: 0.05166, TestL2: 0.06489
+Epoch: 2, Time: 65.90, OptLoss: 0.77212, TrainL2: 0.04634, TestL2: 0.06528
+Epoch: 3, Time: 65.34, OptLoss: 0.71999, TrainL2: 0.04320, TestL2: 0.06628
+Epoch: 4, Time: 66.37, OptLoss: 0.68124, TrainL2: 0.04097, TestL2: 0.06651
+Epoch: 5, Time: 65.49, OptLoss: 0.64754, TrainL2: 0.03910, TestL2: 0.06638
+Epoch: 6, Time: 64.61, OptLoss: 0.61577, TrainL2: 0.03732, TestL2: 0.06755
+Epoch: 7, Time: 64.54, OptLoss: 0.59531, TrainL2: 0.03619, TestL2: 0.06656
+Epoch: 8, Time: 65.50, OptLoss: 0.57366, TrainL2: 0.03495, TestL2: 0.06714
+Epoch: 9, Time: 65.78, OptLoss: 0.55443, TrainL2: 0.03382, TestL2: 0.06706
+Training completed in 736.18s
+Traceback (most recent call last):
+  File "/workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/./experiments/A_no_time/train.py", line 278, in <module>
+    main()
+  File "/workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/./experiments/A_no_time/train.py", line 210, in main
+    torch.save(model.state_dict(), str(model_path))
+  File "/workspace/env/yyf/miniconda3/envs/d2l/lib/python3.9/site-packages/torch/serialization.py", line 849, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "/workspace/env/yyf/miniconda3/envs/d2l/lib/python3.9/site-packages/torch/serialization.py", line 716, in _open_zipfile_writer
+    return container(name_or_buffer)
+  File "/workspace/env/yyf/miniconda3/envs/d2l/lib/python3.9/site-packages/torch/serialization.py", line 687, in __init__
+    super().__init__(torch._C.PyTorchFileWriter(self.name))
+RuntimeError: Parent directory /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add/experiments/A_no_time/runs/baseline_modes1_32_modes2_128_epoch_10 does not exist.

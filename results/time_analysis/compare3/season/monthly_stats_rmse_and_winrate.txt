@@ -1,0 +1,50 @@
+Month grouped stats (metric: RMSE)
+
+== M01 == n=0
+  (no samples)
+
+== M02 == n=0
+  (no samples)
+
+== M03 == n=0
+  (no samples)
+
+== M04 == n=0
+  (no samples)
+
+== M05 == n=0
+  (no samples)
+
+== M06 == n=0
+  (no samples)
+
+== M07 == n=0
+  (no samples)
+
+== M08 == n=0
+  (no samples)
+
+== M09 == n=0
+  (no samples)
+
+== M10 == n=96
+  A_baseline: mean=4.5767, p50=4.7051, p90=5.2586, p99=5.6962
+  Aprime_time_scalar: mean=4.5682, p50=4.6835, p90=5.2662, p99=5.5614
+  Adblprime_time_pe: mean=4.9555, p50=4.9692, p90=5.2312, p99=5.5613
+  WinRate(Aprime_time_scalar < baseline) on RelL2: 50.00%
+  WinRate(Adblprime_time_pe < baseline) on RelL2: 19.79%
+
+== M11 == n=240
+  A_baseline: mean=5.2802, p50=5.3031, p90=5.7055, p99=5.9664
+  Aprime_time_scalar: mean=5.4563, p50=5.4334, p90=5.9330, p99=6.2500
+  Adblprime_time_pe: mean=5.5957, p50=5.5671, p90=6.0124, p99=6.3426
+  WinRate(Aprime_time_scalar < baseline) on RelL2: 25.00%
+  WinRate(Adblprime_time_pe < baseline) on RelL2: 5.42%
+
+== M12 == n=248
+  A_baseline: mean=5.8259, p50=5.8493, p90=6.1066, p99=6.2663
+  Aprime_time_scalar: mean=6.1363, p50=6.1732, p90=6.5114, p99=6.7192
+  Adblprime_time_pe: mean=5.8722, p50=5.8277, p90=6.1957, p99=6.3452
+  WinRate(Aprime_time_scalar < baseline) on RelL2: 4.44%
+  WinRate(Adblprime_time_pe < baseline) on RelL2: 41.53%
+

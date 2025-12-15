@@ -1,0 +1,22 @@
+Season grouped stats (metric: RMSE)
+
+== DJF == n=248
+  A_baseline: mean=5.8259, p50=5.8493, p90=6.1066, p99=6.2663
+  Aprime_time_scalar: mean=6.1363, p50=6.1732, p90=6.5114, p99=6.7192
+  Adblprime_time_pe: mean=5.8722, p50=5.8277, p90=6.1957, p99=6.3452
+  WinRate(Aprime_time_scalar < baseline) on RelL2: 4.44%
+  WinRate(Adblprime_time_pe < baseline) on RelL2: 41.53%
+
+== MAM == n=0
+  (no samples)
+
+== JJA == n=0
+  (no samples)
+
+== SON == n=336
+  A_baseline: mean=5.0792, p50=5.1701, p90=5.6624, p99=5.9591
+  Aprime_time_scalar: mean=5.2026, p50=5.2494, p90=5.8764, p99=6.2479
+  Adblprime_time_pe: mean=5.4128, p50=5.4079, p90=5.9656, p99=6.3321
+  WinRate(Aprime_time_scalar < baseline) on RelL2: 32.14%
+  WinRate(Adblprime_time_pe < baseline) on RelL2: 9.52%
+
