@@ -19,9 +19,8 @@ data/
 normalizers/
 
 # Results and logs
-results/
 logs/
-runs/
+runs/*.pth
 
 # Backup files
 *.bak
@@ -32,6 +31,7 @@ runs/
 *.swp
 *.swo
 *~
+.history/
 
 # OS
 .DS_Store
