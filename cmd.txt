@@ -1,0 +1,73 @@
+# 实时监控GPU
+watch -n 1 nvidia-smi
+
+ps -ef | grep train.py
+
+# 多卡训练
+tmux new -s ddpm
+# 在 tmux 里跑训练（前台跑没问题）
+bash train_ddpm_resume.sh
+# 脱离 tmux（训练继续跑）
+Ctrl + B，然后 D: ? + b   →   d
+
+# 随时回来
+tmux attach -t ddpm
+tmux attach -t fno_runs
+
+我现在想用tmux跑3个模型下的train.py
+分别是:A_no_time、Adblprime_time_pe、Aprime_time_scalar下的train.py
+
+# 新建 tmux session
+tmux new -s fno_runs
+
+# 横向分成 3 个
+Ctrl+b "
+Ctrl+b "
+
+# 现在你有 3 个 pane
+
+
+# Pane 1：A_no_time（GPU 0）
+cd /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add
+CUDA_VISIBLE_DEVICES=0 \
+PYTHONUNBUFFERED=1 python -u experiments/A_no_time/train.py \
+2>&1 | tee logs/A_no_time.log
+
+
+# Pane 2：Aprime_time_scalar（GPU 1）
+cd /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add
+CUDA_VISIBLE_DEVICES=1 \
+PYTHONUNBUFFERED=1 python -u experiments/Aprime_time_scalar/train.py \
+2>&1 | tee logs/shuffled/modes1_32_modes2_128_epoch_100/Aprime_time_scalar.log
+
+# epochs = 300
+cd /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add
+CUDA_VISIBLE_DEVICES=1 \
+PYTHONUNBUFFERED=1 python -u experiments/Aprime_time_scalar/train.py \
+2>&1 | tee logs/Aprime_time_scalar.log
+
+
+# Pane 3：Adblprime_time_pe（GPU 2）
+cd /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add
+CUDA_VISIBLE_DEVICES=2 \
+PYTHONUNBUFFERED=1 python -u experiments/Adblprime_time_pe/train.py \
+2>&1 | tee logs/shuffled/modes1_32_modes2_128_epoch_100/Adblprime_time_pe.log
+
+# Pane 4：A_no_time（GPU 3）
+cd /workspace/code/yyf/Proj/neuraloperator/TimeDimension_add
+CUDA_VISIBLE_DEVICES=3 \
+PYTHONUNBUFFERED=1 python -u experiments/A_no_time/train.py \
+2>&1 | tee logs/shuffled/modes1_32_modes2_128_epoch_100/A_no_time.log
+
+# Pane 5：A_fourier_features（GPU 2）
+# 方式1：一行写完
+CUDA_VISIBLE_DEVICES=2 PYTHONUNBUFFERED=1 python -u experiments/A_fourier_features/train.py 2>&1 | tee logs/xxx.log
+
+# 方式2：续行时确保 \ 后面没有空格
+CUDA_VISIBLE_DEVICES=2 \
+PYTHONUNBUFFERED=1 python -u experiments/A_fourier_features/train.py \
+2>&1 | tee logs/xxx.log
+
+# 查看某个pid对应的进程是谁发起的
+ps -fp 2497320
+

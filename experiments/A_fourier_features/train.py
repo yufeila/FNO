@@ -50,7 +50,7 @@ w = int(800/r)
 
 # Paths
 DATA_DIR = PROJECT_ROOT / "data"
-RESULT_DIR = SCRIPT_DIR / "runs" / "shuffled" / "modes1_32_modes2_128_epoch_100"
+RESULT_DIR = SCRIPT_DIR / "runs" / "modes1_32_modes2_128_epoch_100"
 RESULT_DIR.mkdir(parents=True, exist_ok=True)
 
 TRAIN_X_PATH = DATA_DIR / "interp_train_x_SSP_TLshape_ndrz10.mat"
@@ -106,18 +106,48 @@ def main():
 
     train_global_idx = train_idx.float()
     test_global_idx  = test_idx.float()
-
-    def fourier_feats_1d(phase: torch.Tensor, freqs: torch.Tensor) -> torch.Tensor:
+    
+    def fourier_feats_1d(t: torch.Tensor, freqs: torch.Tensor) -> torch.Tensor:
         """
-        phase: (N,) in [0,1] or [0,1)
-        freqs: (m,) positive frequencies
-        return: (N, 2m)  [sin(2Ï€ f phase), cos(2Ï€ f phase)] for f in freqs
+        Fourier time embedding using sinusoidal features.
+
+        Parameters
+        ----------
+        t : torch.Tensor
+            Shape (N,), normalized time coordinate in [0, 1].
+        freqs : torch.Tensor
+            Shape (m,), positive frequency coefficients.
+
+        Returns
+        -------
+        torch.Tensor
+            Shape (N, 2m), concatenation of
+            [sin(2¦Ð f_k t), cos(2¦Ð f_k t)] for k = 1, ..., m.
         """
         two_pi = 2.0 * np.pi
-        ang = two_pi * phase[:, None] * freqs[None, :]  # (N, m)
+        ang = two_pi * t[:, None] * freqs[None, :]  # (N, m)
         return torch.cat([torch.sin(ang), torch.cos(ang)], dim=-1)
 
     def make_time_feats(global_idx: torch.Tensor) -> torch.Tensor:
+        """
+        Construct continuous temporal features from discrete global time indices
+        using multi-frequency Fourier features.
+
+        Parameters
+        ----------
+        global_idx : torch.Tensor
+            Shape (N,).
+            Discrete global time indices of samples in the full temporal sequence,
+            e.g. n = 0, 1, 2, ..., T-1.
+
+        Returns
+        -------
+        feats : torch.Tensor
+            Shape (N, 24).
+            Concatenated temporal embedding composed of:
+            - 8 channels for intra-day (diurnal) variation
+            - 16 channels for long-term (annual-scale) variation
+        """
         # day phase: 8 samples/day (every 3 hours)
         day_phase  = (global_idx.remainder(8.0)) / 8.0          # (N,) in [0,1)
         # year phase: across whole sequence

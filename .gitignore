@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Data files
+data/
+*.mat
+*.npz
+
+# Model files
+*.pth
+*.pkl
+*.h5
+
+# Normalizers
+normalizers/
+
+# Results and logs
+results/
+logs/
+runs/
+
+# Backup files
+*.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

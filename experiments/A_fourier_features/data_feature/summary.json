@@ -1,0 +1,30 @@
+{
+  "T": 2920,
+  "H": 199,
+  "W": 800,
+  "samples_per_day": 8.0,
+  "max_lag_days": 60,
+  "n_points": 500,
+  "detrend": true,
+  "acf_period_days": {
+    "acf_period_days_count": 500,
+    "acf_period_days_mean": 0.125,
+    "acf_period_days_median": 0.125,
+    "acf_period_days_p10": 0.125,
+    "acf_period_days_p90": 0.125
+  },
+  "psd_period_days": {
+    "psd_period_days_count": 466,
+    "psd_period_days_mean": 290.32904148783973,
+    "psd_period_days_median": 365.0,
+    "psd_period_days_p10": 121.66666666666666,
+    "psd_period_days_p90": 365.0
+  },
+  "psd_freq_cyc_per_day": {
+    "psd_freq_cyc_per_day_count": 500,
+    "psd_freq_cyc_per_day_mean": 0.00412054794520548,
+    "psd_freq_cyc_per_day_median": 0.0027397260273972603,
+    "psd_freq_cyc_per_day_p10": 0.0027397260273972603,
+    "psd_freq_cyc_per_day_p90": 0.008219178082191782
+  }
+}

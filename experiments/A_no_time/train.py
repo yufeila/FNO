@@ -31,7 +31,7 @@ ntest = 584
 
 batch_size = 20
 learning_rate = 0.001
-epochs = 10
+epochs = 100
 step_size = 50
 gamma = 0.5
 
@@ -45,7 +45,7 @@ w = int(800 / r)
 
 # Paths
 DATA_DIR = PROJECT_ROOT / "data"
-RESULT_DIR = SCRIPT_DIR / "runs" / "baseline_modes1_32_modes2_128_epoch_10"
+RESULT_DIR = SCRIPT_DIR / "runs" / "shuffled" /  "baseline_modes1_32_modes2_128_epoch_100"
 RESULT_DIR.mkdir(parents=True, exist_ok=True)
 
 TRAIN_X_PATH = DATA_DIR / "interp_train_x_SSP_TLshape_ndrz10.mat"
@@ -59,11 +59,13 @@ NORM_DIR.mkdir(parents=True, exist_ok=True)
 NORM_PATH = NORM_DIR / "ssp_tl_norm_train2336_ndrz10.pt"
 
 
-def load_or_build_normalizers(x_train_ssp, y_train):
+def load_or_build_normalizers(x_train, y_train):
     """
-    x_train_ssp: (N,H,W,1) SSP only
+    x_train: (N,H,W,C) but we ONLY use SSP channel 0 for x normalizer
     y_train:     (N,H,W)   TL
     """
+    x_train_ssp = x_train[..., 0:1]   # <-- 强制 SSP-only
+
     if NORM_PATH.exists():
         print(f"Loading normalizers from {NORM_PATH}")
         norm_dict = torch.load(str(NORM_PATH), map_location='cpu')
@@ -80,7 +82,7 @@ def load_or_build_normalizers(x_train_ssp, y_train):
         return x_normalizer, y_normalizer
 
     print("Computing normalizers from training data (TRAIN ONLY)...")
-    x_normalizer = UnitGaussianNormalizer(x_train_ssp)
+    x_normalizer = UnitGaussianNormalizer(x_train_ssp) # SSP only
     y_normalizer = UnitGaussianNormalizer(y_train)
 
     print(f"Saving normalizers to {NORM_PATH}")
@@ -106,10 +108,27 @@ def main():
 
     # 1. Load Data
     print("Loading data...")
-    x_train = MatReader(str(TRAIN_X_PATH)).read_field("train_x")[:ntrain]  # (N,H,W)
-    y_train = MatReader(str(TRAIN_Y_PATH)).read_field("train_y")[:ntrain]  # (N,H,W)
-    x_test  = MatReader(str(TEST_X_PATH)).read_field("test_x")[:ntest]     # (N,H,W)
-    y_test  = MatReader(str(TEST_Y_PATH)).read_field("test_y")[:ntest]     # (N,H,W)
+    # Load all data
+    x_train_part = MatReader(str(TRAIN_X_PATH)).read_field("train_x")
+    x_test_part  = MatReader(str(TEST_X_PATH)).read_field("test_x")
+    x_all = torch.cat([x_train_part, x_test_part], dim=0)
+
+    y_train_part = MatReader(str(TRAIN_Y_PATH)).read_field("train_y")
+    y_test_part  = MatReader(str(TEST_Y_PATH)).read_field("test_y")
+    y_all = torch.cat([y_train_part, y_test_part], dim=0)
+
+    # Random Split
+    nt_total = x_all.shape[0]
+    g = torch.Generator().manual_seed(2025)
+    perm = torch.randperm(nt_total, generator=g)
+
+    train_idx = perm[:ntrain]
+    test_idx  = perm[ntrain:]
+
+    x_train = x_all[train_idx]
+    y_train = y_all[train_idx]
+    x_test  = x_all[test_idx]
+    y_test  = y_all[test_idx]
 
     print(f"Train X: {x_train.shape}, Train Y: {y_train.shape}")
     print(f"Test  X: {x_test.shape},  Test  Y: {y_test.shape}")
@@ -121,8 +140,8 @@ def main():
     # 2. Normalization (SSP only for x; TL for y)
     x_normalizer, y_normalizer = load_or_build_normalizers(x_train, y_train)
 
-    x_train = x_normalizer.encode(x_train)
-    x_test  = x_normalizer.encode(x_test)
+    x_train[..., 0:1] = x_normalizer.encode(x_train[..., 0:1])
+    x_test[...,  0:1] = x_normalizer.encode(x_test[...,  0:1])
 
     y_train = y_normalizer.encode(y_train)
     # y_test stays physical for eval
@@ -273,6 +292,36 @@ def main():
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         plt.savefig(str(RESULT_DIR / "prediction_results.png"))
         print(f"Saved visualization to {RESULT_DIR / 'prediction_results.png'}")
+
+    # 7. Full Test Set RMSE Calculation
+    print("Calculating full test set metrics...")
+    model.eval()
+    sqerr_sum = 0.0
+    count = 0
+    rmse_list = []
+
+    with torch.no_grad():
+        for x, y in test_loader:
+            x, y = x.to(device), y.to(device)
+            pred = model(x).squeeze()
+            pred = y_normalizer.decode(pred)
+
+            err = pred - y                      # (B, H, W)
+            mse_per = (err**2).mean(dim=(1,2))  # per-sample MSE
+            rmse_per = torch.sqrt(mse_per)
+
+            rmse_list.append(rmse_per.cpu())
+            sqerr_sum += (err**2).sum().item()
+            count += err.numel()
+
+    rmse_all = (sqerr_sum / count) ** 0.5
+    rmse_per_all = torch.cat(rmse_list)
+
+    print(
+        f"TEST_RMSE_ALLPOINTS={rmse_all:.4f}, "
+        f"MEAN_PER_SAMPLE={rmse_per_all.mean():.4f}, "
+        f"STD_PER_SAMPLE={rmse_per_all.std():.4f}"
+    )
 
 if __name__ == "__main__":
     main()
